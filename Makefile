@@ -14,7 +14,7 @@ initialize_git:
 	git init
 	git add .
 	git commit -m "inital commit"
-	
+	git push 
 ifeq (y,$(REMOTE_GIT))
 	git_user_name=$(shell gh api user | jq -r ".login")
 	@echo $(git_user_name)
