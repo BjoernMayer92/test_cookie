@@ -16,7 +16,6 @@ initialize_git:
 	git commit -m "inital commit"
 	
 ifeq (y,$(REMOTE_GIT))
-	#gh repo create $(REPO_NAME) --public 
 	git_user_name=$(shell gh api user | jq -r ".login")
 	@echo $(git_user_name)
 
