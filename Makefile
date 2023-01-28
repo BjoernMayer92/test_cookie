@@ -12,10 +12,15 @@ endif
 initialize_git:
 	@echo "Initalizing git ... "
 	git init
+	git add .
+	git commit -m "inital commit"
 	
 ifeq (y,$(REMOTE_GIT))
-	gh repo create $(REPO_NAME) --public --source=. --remote=upstream
-endif
+	#gh repo create $(REPO_NAME) --public 
+	git_user_name = $(gh api user | jq -r ".login")
+	@echo $(git_user_name)
+
+endif	
 
 
 activate:
